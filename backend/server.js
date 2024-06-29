@@ -159,6 +159,9 @@ app.get('/images', authenticateJWT, async (req, res) => {
         res.status(500).send(err.message);
     }
 });
+app.use("/", (req, res) => {
+  res.send("Server is running");
+});
 
 app.listen(3000, () => {
     console.log('Server started on port 3000');
