@@ -13,7 +13,11 @@ const Image = require('./models/Image');
 const app = express();
 
 // Middleware
-app.use(cors({origin:["https://ocr-text-editor-frontend.vercel.app"],methods:["POST","GET"],credentials:true}));
+app.use(cors({
+  origin: ['https://ocr-text-editor-frontend.vercel.app', 'http://localhost:3001'], // Allow requests from both frontend URLs
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
